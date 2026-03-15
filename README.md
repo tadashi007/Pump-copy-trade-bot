@@ -45,12 +45,9 @@ npm start
 | --- | --- | --- |
 | `SIMULATION_MODE` | No | `true` avoids real transactions. Defaults to safe testing when set in `.env.example`. |
 | `MIRROR_EXIT` | No | When `true`, exits on detected target-wallet sells. Take-profit is ignored in this mode. |
-| `HELIUS_API_KEY` | No | Optional helper value for building your RPC URLs. |
 | `RPC_HTTP` | Yes | Solana JSON-RPC HTTP endpoint. |
 | `RPC_WSS` | Yes | Solana WebSocket endpoint for log subscriptions. |
 | `ENABLE_MIGRATION_EXIT` | No | Enables Jupiter exit flow after a Pump.fun token migrates. |
-| `JUPITER_QUOTE_URL` | No | Jupiter quote endpoint. |
-| `JUPITER_SWAP_URL` | No | Jupiter swap endpoint. |
 | `PRIVATE_KEY` | Live mode only | Base58-encoded Solana secret key. Optional in simulation mode. |
 | `TARGET_WALLET` | Yes | Wallet address to follow. |
 | `BUY_AMOUNT_SOL` | No | SOL amount to spend per mirrored buy. |
