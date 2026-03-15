@@ -1,0 +1,77 @@
+{
+  "address": "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P",
+  "metadata": {
+    "name": "pump",
+    "version": "0.1.0",
+    "spec": "0.1.0"
+  },
+  "instructions": [
+    {
+      "name": "buy",
+      "docs": ["Buys tokens from a bonding curve."],
+      "discriminator": [102, 6, 61, 18, 1, 218, 235, 234],
+      "accounts": [
+        { "name": "global",                   "writable": false, "signer": false },
+        { "name": "feeRecipient",              "writable": true,  "signer": false },
+        { "name": "mint",                      "writable": false, "signer": false },
+        { "name": "bondingCurve",              "writable": true,  "signer": false },
+        { "name": "associatedBondingCurve",    "writable": true,  "signer": false },
+        { "name": "associatedUser",            "writable": true,  "signer": false },
+        { "name": "user",                      "writable": true,  "signer": true  },
+        { "name": "systemProgram",             "writable": false, "signer": false },
+        { "name": "tokenProgram",              "writable": false, "signer": false },
+        { "name": "creatorVault",              "writable": true,  "signer": false },
+        { "name": "eventAuthority",            "writable": false, "signer": false },
+        { "name": "program",                   "writable": false, "signer": false },
+        { "name": "globalVolumeAccumulator",   "writable": false, "signer": false },
+        { "name": "userVolumeAccumulator",     "writable": true,  "signer": false },
+        { "name": "feeConfig",                 "writable": false, "signer": false },
+        { "name": "feeProgram",                "writable": false, "signer": false }
+      ],
+      "args": [
+        { "name": "amount",      "type": "u64" },
+        { "name": "maxSolCost",  "type": "u64" },
+        { "name": "trackVolume", "type": { "defined": { "name": "OptionBool" } } }
+      ]
+    },
+    {
+      "name": "sell",
+      "docs": ["Sells tokens into a bonding curve."],
+      "discriminator": [51, 230, 133, 164, 1, 127, 131, 173],
+      "accounts": [
+        { "name": "global",                 "writable": false, "signer": false },
+        { "name": "feeRecipient",           "writable": true,  "signer": false },
+        { "name": "mint",                   "writable": false, "signer": false },
+        { "name": "bondingCurve",           "writable": true,  "signer": false },
+        { "name": "associatedBondingCurve", "writable": true,  "signer": false },
+        { "name": "associatedUser",         "writable": true,  "signer": false },
+        { "name": "user",                   "writable": true,  "signer": true  },
+        { "name": "systemProgram",          "writable": false, "signer": false },
+        { "name": "creatorVault",           "writable": true,  "signer": false },
+        { "name": "tokenProgram",           "writable": false, "signer": false },
+        { "name": "eventAuthority",         "writable": false, "signer": false },
+        { "name": "program",                "writable": false, "signer": false },
+        { "name": "feeConfig",              "writable": false, "signer": false },
+        { "name": "feeProgram",             "writable": false, "signer": false }
+      ],
+      "args": [
+        { "name": "amount",       "type": "u64" },
+        { "name": "minSolOutput", "type": "u64" }
+      ]
+    }
+  ],
+  "accounts": [],
+  "types": [
+    {
+      "name": "OptionBool",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          { "name": "None" },
+          { "name": "Some", "fields": [{ "name": "val", "type": "bool" }] }
+        ]
+      }
+    }
+  ],
+  "errors": []
+}
